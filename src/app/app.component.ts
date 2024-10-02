@@ -9,40 +9,65 @@ import { lastValueFrom } from 'rxjs';
 })
 export class AppComponent {
   title: string = 'TP1-AppLastMusique';
-  album?: string = '';
+  // album?: string = '';
   result = false;
   artist?: string = "";
   albums: Album[]=[];
   chansons: Chanson[]=[];
+  // url? : string;
 
 
   constructor (public httpClient: HttpClient){}
+  
 
-  async searchChansons():Promise<void>{
+  async searchChansons(albumName: string):Promise<void>{
+    this.chansons = [];
+    
     this.result = true;
 	
 	// La requête HTTP devra être ajoutée ici 
-	let x = await lastValueFrom (this.httpClient.get<any>("https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=8f630f1f91e115680f041428891d246b&artist=Cher&album=Believe&format=json"));
+	// "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=8f630f1f91e115680f041428891d246b&artist=Cher&album=Believe&format=json"
+  let x = await lastValueFrom (this.httpClient.get<any>
+    ("https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=8f630f1f91e115680f041428891d246b&artist=" 
+      + this.artist + "&album="+ albumName + "&format=json"));
   console.log(x);
   for(let chanson of x.album.tracks.track ){
   let objChanson: Chanson = new Chanson (chanson.name)
     this.chansons.push(objChanson)
     
     }
-   
+    // this.artist="";
     console.log(this.chansons);
-    
+  
   }
 
   newSearch():void{
-    this.result = false;
+  this.result = false;
   }
+async searchAlbums():Promise<void>{
+  this.albums = [];
+this.result = true;
+	
+// La requête HTTP devra être ajoutée ici 
+// "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=8f630f1f91e115680f041428891d246b&artist=Cher&album=Believe&format=json"
+let a = await lastValueFrom (this.httpClient.get<any>
+  ("https://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist="+ this.artist + "&api_key=8f630f1f91e115680f041428891d246b&format=json"));
+console.log(a);
+for(let album of a.topalbums.album){
+let objAlbum: Album = new Album (album.name, album.image[2]["#text"])
+this.albums.push(objAlbum)
+    
+}
+
+console.log(this.albums);
+// this.url = a.album.image;
   
+}
 }
 export class Album{
 
 
-  constructor (public name:string, public image:string ){}
+  constructor (public nameAlbum:string, public imageAlbum:string ){}
 }
 export class Chanson{
 
