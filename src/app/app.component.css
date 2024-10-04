@@ -15,7 +15,7 @@ header h1:hover{
     color:#F685D8;
 }
 .row{
-    border:white solid 5px;
+    border:#050505 solid 5px;
     border-radius:25px;
     padding:10px;
     margin:20px 0px 20px 0px;
@@ -25,7 +25,7 @@ header h1:hover{
 }
 
 form{
-    background-color:rgba(41, 2, 2, 0.2);
+    background-color:rgba(157, 2, 247, 0.808);
     padding:5px;
     border-radius:10px;
 }
@@ -41,7 +41,7 @@ form input{
 }
 
 .artists{
-    background-color:rgba(41, 2, 2, 0.2);
+    background-color:rgba(224, 14, 154, 0.87);
     padding:5px;
     border-radius:10px;
     margin-left:10px;
@@ -50,3 +50,20 @@ form input{
     font-weight:bolder;
     text-align:center;
 }
+.chansons{
+    background-color:rgba(68, 147, 238, 0.87);
+    padding:100px;
+    border-radius:10px;
+    margin-left:10px;
+    color:white;
+    font-family:Calibri;
+    font-weight:bolder;
+    text-align:left;
+
+}
+
+.container-xxl {
+    background-color: black; /* Fondo negro para toda la página */
+    color: white; /* Texto blanco por defecto */
+}
+
