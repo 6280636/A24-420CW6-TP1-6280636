@@ -1,0 +1,69 @@
+header{
+    background-color:#170819;
+    color:white;
+    font-family:Calibri;
+    font-weight:bolder;
+    transition:0.5s;
+}
+header h1{
+    transition:0.5s;
+}
+header:hover{
+    color:#79E0FD;
+}
+header h1:hover{
+    color:#F685D8;
+}
+.row{
+    border:#050505 solid 5px;
+    border-radius:25px;
+    padding:10px;
+    margin:20px 0px 20px 0px;
+}
+.img-fluid{
+    border-radius:25px;
+}
+
+form{
+    background-color:rgba(157, 2, 247, 0.808);
+    padding:5px;
+    border-radius:10px;
+}
+
+form input{
+    padding:5px;
+    margin:5px;
+    width:95%;
+}
+
+.col-3{
+    padding:0px;
+}
+
+.artists{
+    background-color:rgba(224, 14, 154, 0.87);
+    padding:5px;
+    border-radius:10px;
+    margin-left:10px;
+    color:white;
+    font-family:Calibri;
+    font-weight:bolder;
+    text-align:center;
+}
+.chansons{
+    background-color:rgba(68, 147, 238, 0.87);
+    padding:100px;
+    border-radius:10px;
+    margin-left:10px;
+    color:white;
+    font-family:Calibri;
+    font-weight:bolder;
+    text-align:left;
+
+}
+
+.container-xxl {
+    background-color: black; /* Fondo negro para toda la página */
+    color: white; /* Texto blanco por defecto */
+}
+
